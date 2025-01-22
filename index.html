@@ -14,7 +14,7 @@
     addEventListener('load', async () => {
         try {
             let workFile = './service-worker.js';
-            let sw = await navigator.serviceWorker.register('workFile');
+            let sw = await navigator.serviceWorker.register(workFile);
             console.log('Service Worker registered:', sw);
         } catch (error) {
             console.error('Service Worker registration failed:', error);
