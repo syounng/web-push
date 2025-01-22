@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Push Notification Example</title>
+</head>
+<body>
+<button onclick="subscribe()">Subscribe</button>
+
+<script>
+    //service worker 등록
+    addEventListener('load', async () => {
+        try {
+            let workFile = './sw.js';
+            let sw = await navigator.serviceWorker.register('workFile');
+            console.log('Service Worker registered:', sw);
+        } catch (error) {
+            console.error('Service Worker registration failed:', error);
+        }
+    });
+
+    //구독 요청
+    async function subscribe() {
+        try {
+            let sw = await navigator.serviceWorker.ready;가
+            let push = await sw.pushManager.subscribe({
+                userVisibleOnly: true,
+                applicationServerKey: 'BJJowwV1L2hsfFZIwAQgdrgfDc6U3ualMR1Xa-7eGcnjG6Jks95fLGGAe-jjzBn5v275zmZ7eCJFn4QjR2ljL58' 
+                //TODO; DB에 구독 정보 보내기
+            });
+            console.log('Push Subscription:', JSON.stringify(push));
+        } catch (error) {
+            console.error('Push Subscription failed:', error);
+        }
+    }
+</script>
+</body>
+</html>
