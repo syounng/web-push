@@ -17,4 +17,12 @@ let vapidKeys = {
         }
     }
 
-  push.sendNotification(subscription, 'test message')
+    const payload = JSON.stringify({
+        title: 'Hello from the server!',
+        body: 'This is a test notification.',
+        icon: '/images/example.png',
+        data: { url: 'https://github.com/syounng' }
+    });
+    
+    push.sendNotification(subscription, payload);
+    
