@@ -16,5 +16,5 @@ let vapidKeys = {
         data: { url: 'https://github.com/syounng' }
     });
     
-    push.sendNotification(subscription,'test message');
+    push.sendNotification(subscription, payload);
     
