@@ -1,4 +1,3 @@
-//웹 푸시 수신
 self.addEventListener('push', function (e) {
     let data = {};
 
@@ -18,7 +17,7 @@ self.addEventListener('push', function (e) {
 
     // 알림 옵션 동적 생성
     const options = {
-        body: data.body,
+        body: data.body || 'Default message', // <-- JSON 데이터에서 body 사용
         icon: data.icon || '/images/default-icon.png',
         vibrate: [100, 50, 100],
         data: data.data,
@@ -40,11 +39,4 @@ self.addEventListener('push', function (e) {
     e.waitUntil(
         self.registration.showNotification(data.title || 'Default Title', options)
     );
-});
-
-
-//웹 푸시 알림 클릭
-self.addEventListener('notificationclick', function (event) {
-    event.notification.close();
-    event.waitUntil(clients.openWindow(event.notification.data.url));
 });
