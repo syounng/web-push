@@ -13,7 +13,7 @@
     //service worker 등록
     addEventListener('load', async () => {
         try {
-            let workFile = './sw.js';
+            let workFile = './service-worker.js';
             let sw = await navigator.serviceWorker.register('workFile');
             console.log('Service Worker registered:', sw);
         } catch (error) {
