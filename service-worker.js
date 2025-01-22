@@ -13,7 +13,7 @@
 //     self.ServiceWorkerRegistration.sendNotification('you got the web push', {})
 // })
 
-self.addEventListener('push', function(e){
+self.addEventListener('push', function (e) {
     var options = {
         body: 'This notification was generated from a push!',
         icon: 'images/example.png',
@@ -28,10 +28,16 @@ self.addEventListener('push', function(e){
                 title: 'Explore this new world',
                 icon: 'images/checkmark.png'
             },
-            { action: 'close', title: 'Close', icon: 'images/xmark.png'}
+            { 
+                action: 'Close', 
+                title: 'Close', 
+                icon: 'images/xmark.png'
+            }
         ]
     }
-    e.waitUntil(self.registration.showNotification('You got the web push!', options))
+    e.waitUntil(
+        self.registration.showNotification('You got the web push!', options)
+    )
 })
 
 //웹 푸시 알림 클릭
