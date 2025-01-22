@@ -8,15 +8,7 @@ let vapidKeys = {
   //push 발송
   push.setVapidDetails('mailto:test@code.co.uk', vapidKeys.publicKey, vapidKeys.privateKey)
 
-  let subscription = {
-    "endpoint":"https://fcm.googleapis.com/fcm/send/eKhoO4RfBUA:APA91bH6Z_xPlMxTZJyi926u38So5rXmLDTPmBkmBRgtxdWKB_nKV5mmgbhfh2ozkkzh1B7TGTL_PIKN4BN4KxcH-y5TVKRgVXqGS4O8rqj3hYf9J_B8PPpT0F7O8aqTo70xoWuLcShI",
-    "expirationTime":null,
-    "keys":{
-        "p256dh":"BLAQapIvnwg424prtYpmTPWYOeJkM9w11ejAcm6smYBMkMtdzhmPvo7RmY45s37IfX1TGu_F-i70wgS_p6gbbQc",
-        "auth":"lYDRi-k7KRLjhXYLrBIZnQ"
-        }
-    }
-
+  let subscription = {"endpoint":"https://fcm.googleapis.com/fcm/send/eKhoO4RfBUA:APA91bH6Z_xPlMxTZJyi926u38So5rXmLDTPmBkmBRgtxdWKB_nKV5mmgbhfh2ozkkzh1B7TGTL_PIKN4BN4KxcH-y5TVKRgVXqGS4O8rqj3hYf9J_B8PPpT0F7O8aqTo70xoWuLcShI","expirationTime":null,"keys":{"p256dh":"BLAQapIvnwg424prtYpmTPWYOeJkM9w11ejAcm6smYBMkMtdzhmPvo7RmY45s37IfX1TGu_F-i70wgS_p6gbbQc","auth":"lYDRi-k7KRLjhXYLrBIZnQ"}}
     const payload = JSON.stringify({
         title: 'Hello from the server!',
         body: 'This is a test notification.',
@@ -24,5 +16,5 @@ let vapidKeys = {
         data: { url: 'https://github.com/syounng' }
     });
     
-    push.sendNotification(subscription, payload);
+    push.sendNotification(subscription,'test message');
     
